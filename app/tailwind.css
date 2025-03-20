@@ -4,9 +4,117 @@
 
 html,
 body {
-  @apply bg-white dark:bg-gray-950;
+  @apply bg-[#023047] text-white;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;
+  }
+}
+
+@layer utilities {
+  .animation-delay-8 {
+    animation-delay: 0.8s;
+  }
+  
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  .text-ali {
+    @apply text-[#ffb703];
+  }
+
+  .border-ali {
+    @apply border-[#219ebc]/80;
+  }
+  
+  .bg-festas-gradient {
+    @apply bg-gradient-to-r from-[#023047] via-[#01263a] to-[#023047];
+  }
+  
+  .text-highlight {
+    @apply text-[#fb8500];
+  }
+  
+  .bg-highlight {
+    @apply bg-[#fb8500];
+  }
+  
+  .bg-accent-gradient {
+    @apply bg-gradient-to-r from-[#219ebc] to-[#8ecae6];
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 201 95% 14%;
+    --foreground: 0 0% 100%;
+    --card: 201 93% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 201 93% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 199 68% 43%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 196 49% 73%;
+    --secondary-foreground: 201 93% 10%;
+    --muted: 201 50% 20%;
+    --muted-foreground: 196 30% 85%;
+    --accent: 42 100% 51%;
+    --accent-foreground: 201 93% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 199 68% 43%;
+    --input: 199 68% 43%;
+    --ring: 199 68% 43%;
+    --chart-1: 199 68% 43%;
+    --chart-2: 196 49% 73%;
+    --chart-3: 42 100% 51%;
+    --chart-4: 32 100% 49%;
+    --chart-5: 201 95% 14%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 201 95% 14%;
+    --foreground: 0 0% 100%;
+    --card: 201 93% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 201 93% 10%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 199 68% 43%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 196 49% 73%;
+    --secondary-foreground: 201 93% 10%;
+    --muted: 201 50% 20%;
+    --muted-foreground: 196 30% 85%;
+    --accent: 42 100% 51%;
+    --accent-foreground: 201 93% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 199 68% 43%;
+    --input: 199 68% 43%;
+    --ring: 199 68% 43%;
+    --chart-1: 199 68% 43%;
+    --chart-2: 196 49% 73%;
+    --chart-3: 42 100% 51%;
+    --chart-4: 32 100% 49%;
+    --chart-5: 201 95% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }

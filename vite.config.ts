@@ -18,7 +18,30 @@ export default defineConfig({
         v3_singleFetch: true,
         v3_lazyRouteDiscovery: true,
       },
+      ignoredRouteFiles: ["**/.*"],
     }),
     tsconfigPaths(),
+    {
+      name: 'remix-manifest-resolver',
+      resolveId(id) {
+        if (id === 'remix:manifest') {
+          return '\0virtual:remix-manifest';
+        }
+        return null;
+      },
+      load(id) {
+        if (id === '\0virtual:remix-manifest') {
+          return 'export default {};';
+        }
+        return null;
+      }
+    }
   ],
+  server: {
+    port: 5173,
+    host: "localhost",
+  },
+  build: {
+    sourcemap: true,
+  },
 });

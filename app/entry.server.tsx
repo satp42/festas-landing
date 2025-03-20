@@ -14,6 +14,10 @@ import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 5_000;
 
+// Cache control headers for different types of routes
+const STATIC_CACHE_CONTROL = "public, max-age=3600, s-maxage=86400, stale-while-revalidate=31536000";
+const DYNAMIC_CACHE_CONTROL = "public, max-age=0, s-maxage=0, must-revalidate";
+
 export default function handleRequest(
   request: Request,
   responseStatusCode: number,
@@ -24,6 +28,18 @@ export default function handleRequest(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   loadContext: AppLoadContext
 ) {
+  // Set appropriate cache headers based on route
+  const url = new URL(request.url);
+  const isStaticRoute = !url.pathname.includes("dashboard") && 
+                        !url.pathname.includes("api") && 
+                        !url.pathname.includes("auth");
+                        
+  if (isStaticRoute) {
+    responseHeaders.set("Cache-Control", STATIC_CACHE_CONTROL);
+  } else {
+    responseHeaders.set("Cache-Control", DYNAMIC_CACHE_CONTROL);
+  }
+
   return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(
         request,
@@ -46,7 +62,6 @@ function handleBotRequest(
   remixContext: EntryContext
 ) {
   return new Promise((resolve, reject) => {
-    let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
@@ -55,14 +70,12 @@ function handleBotRequest(
       />,
       {
         onAllReady() {
-          shellRendered = true;
           const body = new PassThrough();
-          const stream = createReadableStreamFromReadable(body);
 
           responseHeaders.set("Content-Type", "text/html");
 
           resolve(
-            new Response(stream, {
+            new Response(createReadableStreamFromReadable(body), {
               headers: responseHeaders,
               status: responseStatusCode,
             })
@@ -74,13 +87,8 @@ function handleBotRequest(
           reject(error);
         },
         onError(error: unknown) {
+          console.error(error);
           responseStatusCode = 500;
-          // Log streaming rendering errors from inside the shell.  Don't log
-          // errors encountered during initial shell rendering since they'll
-          // reject and get logged in handleDocumentRequest.
-          if (shellRendered) {
-            console.error(error);
-          }
         },
       }
     );
@@ -96,7 +104,6 @@ function handleBrowserRequest(
   remixContext: EntryContext
 ) {
   return new Promise((resolve, reject) => {
-    let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
       <RemixServer
         context={remixContext}
@@ -105,14 +112,12 @@ function handleBrowserRequest(
       />,
       {
         onShellReady() {
-          shellRendered = true;
           const body = new PassThrough();
-          const stream = createReadableStreamFromReadable(body);
 
           responseHeaders.set("Content-Type", "text/html");
 
           resolve(
-            new Response(stream, {
+            new Response(createReadableStreamFromReadable(body), {
               headers: responseHeaders,
               status: responseStatusCode,
             })
@@ -124,13 +129,8 @@ function handleBrowserRequest(
           reject(error);
         },
         onError(error: unknown) {
+          console.error(error);
           responseStatusCode = 500;
-          // Log streaming rendering errors from inside the shell.  Don't log
-          // errors encountered during initial shell rendering since they'll
-          // reject and get logged in handleDocumentRequest.
-          if (shellRendered) {
-            console.error(error);
-          }
         },
       }
     );
