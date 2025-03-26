@@ -26,7 +26,12 @@ const features = [
     description: "Automate your financial planning with AI-powered analysis and projections.",
     href: "/",
     cta: "Learn more",
-    background: <img src={stockImages[0]} className="absolute inset-0 w-full h-full object-cover opacity-20" alt="Financial planning" />,
+    background: (
+      <div className="absolute inset-0">
+        <img src={stockImages[0]} className="absolute inset-0 w-full h-full object-cover opacity-30" alt="Financial planning" />
+        <div className="absolute inset-0 bg-[#003049] opacity-60"></div>
+      </div>
+    ),
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
   },
   {
@@ -35,7 +40,12 @@ const features = [
     description: "Connect to your existing financial data sources with seamless integration.",
     href: "/",
     cta: "Learn more",
-    background: <img src={stockImages[1]} className="absolute inset-0 w-full h-full object-cover opacity-20" alt="Data integration" />,
+    background: (
+      <div className="absolute inset-0">
+        <img src={stockImages[1]} className="absolute inset-0 w-full h-full object-cover opacity-30" alt="Data integration" />
+        <div className="absolute inset-0 bg-[#003049] opacity-60"></div>
+      </div>
+    ),
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },
   {
@@ -44,7 +54,12 @@ const features = [
     description: "Stay compliant with financial regulations across multiple jurisdictions.",
     href: "/",
     cta: "Learn more",
-    background: <img src={stockImages[2]} className="absolute inset-0 w-full h-full object-cover opacity-20" alt="Global compliance" />,
+    background: (
+      <div className="absolute inset-0">
+        <img src={stockImages[2]} className="absolute inset-0 w-full h-full object-cover opacity-30" alt="Global compliance" />
+        <div className="absolute inset-0 bg-[#003049] opacity-60"></div>
+      </div>
+    ),
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
   },
   {
@@ -53,7 +68,12 @@ const features = [
     description: "Use AI to predict future financial trends and plan accordingly.",
     href: "/",
     cta: "Learn more",
-    background: <img src={stockImages[3]} className="absolute inset-0 w-full h-full object-cover opacity-20" alt="Forecasting" />,
+    background: (
+      <div className="absolute inset-0">
+        <img src={stockImages[3]} className="absolute inset-0 w-full h-full object-cover opacity-30" alt="Forecasting" />
+        <div className="absolute inset-0 bg-[#003049] opacity-60"></div>
+      </div>
+    ),
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
   },
   {
@@ -62,7 +82,12 @@ const features = [
     description: "Get notified about important financial events and metrics with customizable alerts.",
     href: "/",
     cta: "Learn more",
-    background: <img src={stockImages[4]} className="absolute inset-0 w-full h-full object-cover opacity-20" alt="Alerts and monitoring" />,
+    background: (
+      <div className="absolute inset-0">
+        <img src={stockImages[4]} className="absolute inset-0 w-full h-full object-cover opacity-30" alt="Alerts and monitoring" />
+        <div className="absolute inset-0 bg-[#003049] opacity-60"></div>
+      </div>
+    ),
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4",
   },
 ];
