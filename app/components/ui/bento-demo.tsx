@@ -8,6 +8,7 @@ import {
 
 import { BentoCard, BentoGrid } from "./bento-grid";
 import { Faq3 } from "./faq3";
+import { PricingBasic } from "./pricing-basic";
 
 // Stock Unsplash image URLs
 const stockImages = [
@@ -71,8 +72,8 @@ function BentoDemo() {
     <>
       <section id="features" className="py-24 px-4 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Modernize Your FP&A Process</h2>
-          <p className="text-lg text-primary/60 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Modernize Your FP&A Process</h2>
+          <p className="text-lg text-[#8ecae6] max-w-3xl mx-auto">
             Our platform offers powerful features to streamline your financial planning and analysis workflows.
           </p>
         </div>
@@ -82,6 +83,7 @@ function BentoDemo() {
           ))}
         </BentoGrid>
       </section>
+      <PricingBasic />
       <Faq3 />
     </>
   );

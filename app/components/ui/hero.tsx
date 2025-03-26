@@ -13,15 +13,13 @@ export function Hero() {
     // Preload the dashboard page data
     dashboardFetcher.load("/dashboard");
     // Preload the demo booking page
-    demoFetcher.load("https://cal.com/festas/events");
+    demoFetcher.load("https://cal.com/satwikp/festas-demo-call");
   }, []);
 
   return (
-    <section id="home" className="h-screen overflow-hidden flex flex-col items-center justify-start relative pt-16 bg-festas-gradient">
+    <section id="home" className="h-screen overflow-hidden flex flex-col items-center justify-start relative pt-16 bg-[#023047]">
       {/* Background decoration */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#023047] via-[#023047] to-transparent opacity-80"></div>
-        <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-[#023047] via-[#01263a] to-transparent opacity-50"></div>
         <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#219ebc] rounded-full filter blur-[120px] opacity-10"></div>
         <div className="absolute top-1/3 right-0 w-80 h-80 bg-[#ffb703] rounded-full filter blur-[120px] opacity-10"></div>
       </div>
@@ -47,7 +45,7 @@ export function Hero() {
         <div className="w-full">
           <div className="px-2">
             <div className="relative mx-auto border-ali p-8 md:p-12 bg-[#023047] bg-opacity-95 shadow-2xl rounded-lg w-full max-w-5xl border-2" id="feature-box">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#023047] to-[#012236] opacity-80 rounded-lg"></div>
+              <div className="absolute inset-0 bg-[#023047] opacity-80 rounded-lg"></div>
               
               <div className="relative z-10">
                 <h1 className="flex select-none flex-col px-3 py-1 text-center text-5xl font-semibold leading-none tracking-tight md:text-6xl lg:text-7xl text-white">
@@ -85,7 +83,7 @@ export function Hero() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl px-6 text-sm text-[#8ecae6]/80 md:max-w-4xl lg:text-base">
-            Empower your business with data-driven financial decisions through automated budget analysis, optimization, and dynamic rolling forecasts.
+            Customized KPI Dashboard and financial statement consolidation tailored specifically to Construction, Trucking, Manufacturing, Shipping, Transportation, and Waste Management services.
           </p>
           <div className="flex justify-center gap-4 mt-8">
             <Link to={"/dashboard"} prefetch="intent">
@@ -97,7 +95,7 @@ export function Hero() {
                 Start Planning
               </Button>
             </Link>
-            <Link to={"https://cal.com/festas/events"} prefetch="intent">
+            <Link to={"https://cal.com/satwikp/festas-demo-call"} prefetch="intent">
               <Button 
                 variant="outline" 
                 size="lg"

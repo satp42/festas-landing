@@ -1,4 +1,5 @@
-// New file: FAQ component for Festas
+"use client";
+
 import {
   Accordion,
   AccordionContent,
@@ -27,44 +28,38 @@ interface Faq3Props {
 const defaultFaqItems: FaqItem[] = [
   {
     id: "faq-1",
-    question: "What is Festas?",
+    question: "What is festas?",
     answer:
-      "Festas is an AI-driven platform that automates budget analysis, optimization, and rolling forecasts to empower small businesses.",
+      "Festas is an FP&A platform designed for companies in the Industrials space. Through our extremely competitive pricing and personalization, Festas is designed to transform legacy businesses for a fraction of the cost.",
   },
   {
     id: "faq-2",
     question: "How does automated budget analysis work?",
     answer:
-      "Our AI agents analyze historical financial data to identify spending inefficiencies and offer actionable recommendations.",
+      "Festas uses AI to personalize financial planning by analyzing your spending, tracking expenses in real-time, and forecasting future trends. It lets you set customized goals, integrates your financial data, and provides actionable insights to optimize your business effectively. With predictive analysis and tailored recommendations, it ensures your financial strategy aligns with your unique needs and objectives.",
   },
   {
     id: "faq-3",
     question: "Which financial integrations are supported?",
     answer:
-      "Festas seamlessly integrates with popular accounting software like QuickBooks and Xero, and supports CSV/Excel uploads.",
+      "Our financial integrations support a variety of systems, including ERP platforms like NetSuite, QuickBooks, Oracle, SAP, and Xero, CRM systems such as Salesforce and HubSpot, and HRIS tools like BambooHR, Gusto, and Namely. We also integrate with e-commerce solutions like Shopify, payment gateways like PayPal, and accounting software like FreshBooks. Our flexible data ingestion capabilities allow us to work with any system that exports data via CSV or API. Additionally, we can handle paper-based data from documents like invoices and bank statements, accommodating companies that still use traditional methods. If your system isn't listed, we can customize our integrations to meet your specific needs.",
   },
   {
     id: "faq-4",
-    question: "How are rolling forecasts generated?",
+    question: "Is my financial data secure?",
     answer:
-      "We use advanced machine learning models that update your forecasts automatically as new data comes in.",
+      "Your financial data is secure with us. We maintain robust cybersecurity measures, including encryption, secure access controls, and regular audits to ensure the integrity and confidentiality of your data. Our systems are designed to meet the evolving cybersecurity threats and regulatory requirements, ensuring that your financial information is safeguarded at all times.",
   },
   {
     id: "faq-5",
-    question: "Is my financial data secure?",
+    question: "What are Festas's benefits?",
     answer:
-      "Yes, we use end-to-end encryption and comply with GDPR and CCPA to ensure that your data is secure.",
-  },
-  {
-    id: "faq-6",
-    question: "How can I get support?",
-    answer:
-      "Our dedicated support team is available to assist you with any questions. Contact us via our support portal.",
+      "We offer an unprecedented level of customization for industrial companies. From industry-specific KPIs to integration with legacy workflows, Festas was built with all customers in mind. Secondly, our services our simply cheaper. Don't take our word for it - compare our pricing online!",
   },
 ];
 
 const Faq3 = ({
-  heading = "Frequently Asked Questions about Festas",
+  heading = "Frequently Asked Questions",
   description = "Discover answers to common questions about our AI-driven platform for budget optimization and forecasting. If you have more questions, our support team is ready to help.",
   items = defaultFaqItems,
   supportHeading = "Need More Help?",
@@ -76,32 +71,32 @@ const Faq3 = ({
     <section className="py-32 bg-[#023047] text-white">
       <div className="container mx-auto px-4 max-w-7xl space-y-16">
         <div className="mx-auto flex max-w-3xl flex-col text-center">
-          <h2 className="mb-3 text-3xl font-semibold md:mb-4 lg:mb-6 lg:text-4xl">
+          <h2 className="mb-3 text-3xl font-semibold md:mb-4 lg:mb-6 lg:text-4xl text-white">
             {heading}
           </h2>
-          <p className="text-muted-foreground lg:text-lg">{description}</p>
+          <p className="text-[#8ecae6] lg:text-lg">{description}</p>
         </div>
-        <Accordion
-          type="single"
-          collapsible
-          className="mx-auto w-full lg:max-w-3xl"
-        >
+        
+        <Accordion type="single" collapsible className="mx-auto w-full lg:max-w-3xl">
           {items.map((item) => (
-            <AccordionItem key={item.id} value={item.id}>
-              <AccordionTrigger className="transition-opacity duration-200 hover:no-underline hover:opacity-60">
-                <div className="font-medium sm:py-1 lg:py-2 lg:text-lg">
-                  {item.question}
-                </div>
+            <AccordionItem 
+              key={item.id} 
+              value={item.id}
+              className="border-b border-[#219ebc]/30"
+            >
+              <AccordionTrigger className="text-white hover:text-[#8ecae6] hover:no-underline lg:text-lg font-medium">
+                {item.question}
               </AccordionTrigger>
-              <AccordionContent className="sm:mb-1 lg:mb-2">
-                <div className="text-muted-foreground lg:text-lg">
+              <AccordionContent>
+                <div className="text-[#8ecae6] lg:text-lg">
                   {item.answer}
                 </div>
               </AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
-        <div className="mx-auto flex max-w-4xl flex-col items-center rounded-lg bg-accent p-4 text-center md:rounded-xl md:p-6 lg:p-8">
+        
+        <div className="mx-auto flex max-w-4xl flex-col items-center rounded-lg bg-[#01263a] p-4 text-center md:rounded-xl md:p-6 lg:p-8 border border-[#219ebc]/30">
           <div className="relative">
             <Avatar className="absolute mb-4 size-16 origin-bottom -translate-x-[60%] scale-[80%] border md:mb-5">
               <AvatarImage src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?auto=format&fit=crop&w=256&q=80" />
@@ -116,14 +111,14 @@ const Faq3 = ({
               <AvatarFallback>FS</AvatarFallback>
             </Avatar>
           </div>
-          <h3 className="mb-2 max-w-3xl font-semibold lg:text-lg">
+          <h3 className="mb-2 max-w-3xl font-semibold lg:text-lg text-white">
             {supportHeading}
           </h3>
-          <p className="mb-8 max-w-3xl text-muted-foreground lg:text-lg">
+          <p className="mb-8 max-w-3xl text-[#8ecae6] lg:text-lg">
             {supportDescription}
           </p>
           <div className="flex w-full flex-col justify-center gap-2 sm:flex-row">
-            <Button className="w-full sm:w-auto" asChild>
+            <Button className="w-full sm:w-auto bg-[#ffb703] hover:bg-[#fb8500] text-[#023047] font-medium" asChild>
               <a href={supportButtonUrl} target="_blank" rel="noopener noreferrer">
                 {supportButtonText}
               </a>
