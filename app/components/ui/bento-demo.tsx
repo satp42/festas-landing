@@ -8,6 +8,8 @@ import {
 
 import { BentoCard, BentoGrid } from "./bento-grid";
 import { Faq3 } from "./faq3";
+import { AnimatedBeamMultipleOutputDemo } from "./integration-beam-demo";
+import AnimatedListDemo from "./notifs";
 import { PricingBasic } from "./pricing-basic";
 
 // Stock Unsplash image URLs
@@ -42,11 +44,12 @@ const features = [
     cta: "Learn more",
     background: (
       <div className="absolute inset-0">
-        <img src={stockImages[1]} className="absolute inset-0 w-full h-full object-cover opacity-30" alt="Data integration" />
-        <div className="absolute inset-0 bg-[#003049] opacity-60"></div>
+        <div className="absolute inset-0 bg-[#003049] opacity-60">
+          <AnimatedBeamMultipleOutputDemo className="absolute right-2 top-4 h-[300px] border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105" />
+        </div>
       </div>
     ),
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
+    className: "group lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
   },
   {
     Icon: GlobeIcon,
@@ -84,8 +87,9 @@ const features = [
     cta: "Learn more",
     background: (
       <div className="absolute inset-0">
-        <img src={stockImages[4]} className="absolute inset-0 w-full h-full object-cover opacity-30" alt="Alerts and monitoring" />
-        <div className="absolute inset-0 bg-[#003049] opacity-60"></div>
+        <div className="absolute inset-0 bg-[#003049]/60">
+          <AnimatedListDemo className="absolute right-2 top-4 h-[300px] w-full scale-75 border-none transition-all duration-300 ease-out [mask-image:linear-gradient(to_top,transparent_10%,#000_100%)] group-hover:scale-105 z-10" />
+        </div>
       </div>
     ),
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-2 lg:row-end-4",

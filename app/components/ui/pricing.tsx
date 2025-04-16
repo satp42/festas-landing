@@ -78,7 +78,7 @@ export function Pricing({
       ],
       description: "For large organizations with specific needs requiring advanced scenario planning and predictive analytics.",
       buttonText: "Contact Sales",
-      href: "/contact",
+      href: "https://cal.com/satwikp/festas-demo-call",
       isPopular: false,
     }
   ];
@@ -112,54 +112,78 @@ export function Pricing({
                   </span>
                 </div>
               )}
-              <div className="flex-1 flex flex-col">
-                <p className="text-base font-semibold text-[#8ecae6]">
-                  {plan.name}
-                </p>
-                <div className="mt-6 flex items-center justify-center gap-x-2">
-                  <span className="text-5xl font-bold tracking-tight text-white">
-                    ${plan.price}
-                  </span>
-                  {plan.period !== "Next 3 months" && (
-                    <span className="text-sm font-semibold leading-6 tracking-wide text-[#8ecae6]">
-                      / {plan.period}
+              <div className="flex flex-col h-full">
+                <div>
+                  <p className="text-base font-semibold text-[#8ecae6]">
+                    {plan.name}
+                  </p>
+                  <div className="mt-6 flex items-center justify-center gap-x-2">
+                    <span className="text-5xl font-bold tracking-tight text-white">
+                      ${plan.price}
                     </span>
-                  )}
+                    {plan.period !== "Next 3 months" && (
+                      <span className="text-sm font-semibold leading-6 tracking-wide text-[#8ecae6]">
+                        / {plan.period}
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-xs leading-5 text-[#8ecae6]">
+                    billed monthly
+                  </p>
+
+                  <ul className="mt-5 gap-2 flex flex-col">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-[#ffb703] mt-1 flex-shrink-0" />
+                        <span className="text-left text-[#8ecae6]">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                <p className="text-xs leading-5 text-[#8ecae6]">
-                  billed monthly
-                </p>
+                <div className="mt-auto flex flex-col">
+                  <hr className="w-full mt-8 mb-6 border-[#219ebc]/30" />
 
-                <ul className="mt-5 gap-2 flex flex-col">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-[#ffb703] mt-1 flex-shrink-0" />
-                      <span className="text-left text-[#8ecae6]">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <hr className="w-full my-4 border-[#219ebc]/30" />
-
-                <Link
-                  to={plan.href}
-                  className={cn(
-                    buttonVariants({
-                      variant: "outline",
-                    }),
-                    "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
-                    "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-[#ffb703] hover:ring-offset-1 hover:bg-[#ffb703] hover:text-[#023047]",
-                    plan.isPopular
-                      ? "bg-[#ffb703] text-[#023047]"
-                      : "bg-[#01263a] text-white border-[#219ebc]"
+                  {plan.href.startsWith('http') ? (
+                    <a
+                      href={plan.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        buttonVariants({
+                          variant: "outline",
+                        }),
+                        "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
+                        "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-[#ffb703] hover:ring-offset-1 hover:bg-[#ffb703] hover:text-[#023047]",
+                        plan.isPopular
+                          ? "bg-[#ffb703] text-[#023047]"
+                          : "bg-[#01263a] text-white border-[#219ebc]"
+                      )}
+                    >
+                      {plan.buttonText}
+                    </a>
+                  ) : (
+                    <Link
+                      to={plan.href}
+                      className={cn(
+                        buttonVariants({
+                          variant: "outline",
+                        }),
+                        "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
+                        "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-[#ffb703] hover:ring-offset-1 hover:bg-[#ffb703] hover:text-[#023047]",
+                        plan.isPopular
+                          ? "bg-[#ffb703] text-[#023047]"
+                          : "bg-[#01263a] text-white border-[#219ebc]"
+                      )}
+                    >
+                      {plan.buttonText}
+                    </Link>
                   )}
-                >
-                  {plan.buttonText}
-                </Link>
-                <p className="mt-6 text-xs leading-5 text-[#8ecae6]">
-                  {plan.description}
-                </p>
+                  <p className="mt-6 text-xs leading-5 text-[#8ecae6]">
+                    {plan.description}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
