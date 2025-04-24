@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { HeroDemo } from "@/components/ui/animated-hero";
 import { BackgroundBeams } from "@/components/ui/background-beams";
+import { FeaturesGrid } from "@/components/ui/feature-grid";
 import { toast } from "sonner";
 
 export default function Home() {
@@ -23,16 +24,23 @@ export default function Home() {
   }, [searchParams]);
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Background component with responsive sizing */}
-      <BackgroundBeams className="absolute inset-0 w-full h-full z-0" />
+    <div className="relative w-full overflow-hidden">
+      {/* Background component */}
+      <BackgroundBeams className="fixed inset-0 w-full h-full z-0" />
       
-      {/* Content positioned above the background */}
-      <div className="relative z-10 grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen gap-16 font-[family-name:var(--font-geist-sans)]">
-        <main className="flex flex-col w-full row-start-2">
-          <HeroDemo />
-        </main>
+      {/* Content Layer */}
+      <div className="relative z-10">
+        {/* Hero section */}
+        <section className="min-h-screen grid place-items-center">
+          <div className="w-full">
+            <HeroDemo />
+          </div>
+        </section>
         
+        {/* Features section */}
+        <section>
+          <FeaturesGrid />
+        </section>
       </div>
     </div>
   );
