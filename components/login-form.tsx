@@ -14,6 +14,13 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { toast } from "sonner";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 // Email validation regex
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -28,7 +35,9 @@ export function LoginForm({
     name: "",
     company: "",
     email: "",
-    phone: ""
+    phone: "",
+    fleetSize: "",
+    industryType: ""
   });
   const [errors, setErrors] = useState({
     email: "",
@@ -77,6 +86,13 @@ export function LoginForm({
         [id]: value
       }));
     }
+  };
+  
+  const handleSelectChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
   };
   
   const validateForm = () => {
@@ -148,7 +164,7 @@ export function LoginForm({
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
-                <Label htmlFor="name">Name</Label>
+                <Label htmlFor="name">Full Name</Label>
                 <Input
                   id="name"
                   type="text"
@@ -160,22 +176,57 @@ export function LoginForm({
                 />
               </div>
               <div className="grid gap-3">
-                <Label htmlFor="company">Company</Label>
+                <Label htmlFor="company">Company Name</Label>
                 <Input
                   id="company"
                   type="text"
-                  placeholder="Acme Inc."
+                  placeholder="ABC Logistics Inc."
                   className="bg-white/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800"
                   value={formData.company}
                   onChange={handleChange}
                 />
               </div>
               <div className="grid gap-3">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="industryType">Industry</Label>
+                <Select 
+                  onValueChange={(value) => handleSelectChange('industryType', value)}
+                  defaultValue={formData.industryType}
+                >
+                  <SelectTrigger className="bg-white/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 w-full">
+                    <SelectValue placeholder="Select your industry" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="trucking">Trucking & Transportation</SelectItem>
+                    <SelectItem value="waste">Waste Management</SelectItem>
+                    <SelectItem value="logistics">Logistics & Warehousing</SelectItem>
+                    <SelectItem value="other">Other Industrial</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="fleetSize">Team Size</Label>
+                <Select 
+                  onValueChange={(value) => handleSelectChange('fleetSize', value)}
+                  defaultValue={formData.fleetSize}
+                >
+                  <SelectTrigger className="bg-white/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 w-full">
+                    <SelectValue placeholder="Select team size" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="1-20">1-20 employees</SelectItem>
+                    <SelectItem value="21-50">21-50 employees</SelectItem>
+                    <SelectItem value="51-100">51-100 employees</SelectItem>
+                    <SelectItem value="101-300">101-300 employees</SelectItem>
+                    <SelectItem value="300+">300+ employees</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+              <div className="grid gap-3">
+                <Label htmlFor="email">Work Email</Label>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="you@yourcompany.com"
                   required
                   className={`bg-white/50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 ${errors.email ? 'border-red-500' : ''}`}
                   value={formData.email}
@@ -202,8 +253,11 @@ export function LoginForm({
                   className="w-full bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 shadow-md"
                   disabled={isSubmitting || !!errors.email}
                 >
-                  {isSubmitting ? "Submitting..." : "Join the waiting list"}
+                  {isSubmitting ? "Submitting..." : "Get Early Access"}
                 </Button>
+                <p className="text-xs text-center text-slate-500 dark:text-slate-400 mt-2">
+                  By submitting, you&apos;ll receive priority access to our FP&A platform that helps trucking, logistics, and waste management companies optimize their operations and improve profit margins.
+                </p>
               </div>
             </div>
           </form>

@@ -10,7 +10,7 @@ import Link from "next/link";
 function Hero() {
   const [titleNumber, setTitleNumber] = useState(0);
   const titles = useMemo(
-    () => ["data-driven", "optimized", "automated", "proactive", "intelligent"],
+    () => ["protect margins", "tame volatility", "fund growth", "optimize fleets", "maximize cash flow"],
     []
   );
 
@@ -31,12 +31,12 @@ function Hero() {
         <div className="flex gap-8 py-20 lg:py-40 items-center justify-center flex-col">
           <div>
             <Button variant="secondary" size="sm" className="gap-4">
-              AI-powered budget tools <MoveRight className="w-4 h-4" />
+              AI-powered FP&A Agents <MoveRight className="w-4 h-4" />
             </Button>
           </div>
           <div className="flex gap-4 flex-col">
             <h1 className="text-5xl md:text-7xl max-w-2xl tracking-tighter text-center font-regular">
-              <span className="text-spektr-cyan-50">Financial decisions</span>
+              <span className="text-spektr-cyan-50">Festas helps you</span>
               <span className="relative flex w-full justify-center overflow-hidden text-center md:pb-4 md:pt-1">
                 &nbsp;
                 {titles.map((title, index) => (
@@ -64,14 +64,14 @@ function Hero() {
             </h1>
 
             <p className="text-lg md:text-xl leading-relaxed tracking-tight text-muted-foreground max-w-2xl text-center">
-              Empower your small business with automated budget analysis, 
-              optimization, and dynamic rolling forecasts using specialized AI agents.
+              Real-time, AI-driven financial planning for trucking, logistics, and waste-management 
+              operators. Get premium FP&A without hiring a finance team.
             </p>
           </div>
           <div className="flex flex-row gap-3">
             <a href="https://cal.com/satwikp/festas-demo-call" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="gap-4" variant="outline">
-                Learn more <PhoneCall className="w-4 h-4" />
+                Book a demo <PhoneCall className="w-4 h-4" />
               </Button>
             </a>
             <Link href="/get-started">

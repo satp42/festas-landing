@@ -20,7 +20,7 @@ export async function POST(request: Request) {
     
     // Parse the request body
     const data = await request.json();
-    const { name, company, email, phone } = data;
+    const { name, company, email, phone, fleetSize, industryType } = data;
     
     // Validate the required fields
     if (!name || !email) {
@@ -37,7 +37,9 @@ export async function POST(request: Request) {
           Name: name,
           Company: company || "",
           Email: email,
-          Phone: phone || ""
+          Phone: phone || "",
+          FleetSize: fleetSize || "",
+          IndustryType: industryType || ""
         }
       }
     ]);

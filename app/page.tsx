@@ -14,9 +14,10 @@ export default function Home() {
     const success = searchParams.get('success');
     
     if (success === 'true') {
-      toast.success('Successfully added to the waitlist!', {
-        description: 'Thank you for your interest in Festas. We will contact you soon.',
+      toast.success('You\'re on the waitlist!', {
+        description: 'Thank you for your interest in Festas FP&A Agents. Our team will reach out to discuss how we can help optimize your operations.',
         position: 'top-center',
+        duration: 6000,
       });
     }
   }, [searchParams]);

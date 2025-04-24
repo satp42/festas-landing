@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 
 // Minimal metadata for better performance
 export const metadata: Metadata = {
-  title: "Festas | AI-Powered Budget Analysis",
-  description: "Budget analysis and forecasting for small businesses",
+  title: "Festas FP&A Agents | AI-Powered Financial Planning for Industrial SMBs",
+  description: "Real-time, AI-driven financial planning for trucking, logistics, and waste-management operators. Protect margins, tame volatility, and fund growth without hiring a finance team.",
 };
 
 export default function RootLayout({
