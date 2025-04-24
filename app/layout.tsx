@@ -19,7 +19,7 @@ const geistMono = Geist_Mono({
 
 // Comprehensive SEO metadata
 export const metadata: Metadata = {
-  metadataBase: new URL('https://festas.com'), // Replace with your actual domain
+  metadataBase: new URL('https://usefestas.com'), // Updated to correct domain
   title: {
     template: '%s | Festas FP&A Agents',
     default: 'Festas FP&A Agents | AI-Powered Financial Planning for Industrial SMBs',
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Festas FP&A Agents | AI-Powered Financial Planning for Industrial SMBs',
     description: 'Real-time, AI-driven financial planning for trucking, logistics, and waste-management operators. Protect margins, tame volatility, and fund growth without hiring a finance team.',
-    url: 'https://festas.com',
+    url: 'https://usefestas.com',
     siteName: 'Festas',
     images: [
       {
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
   
   // Alternate languages/versions
   alternates: {
-    canonical: 'https://festas.com',
+    canonical: 'https://usefestas.com',
   },
   
   // Icons - Ensure favicon.ico is in the app directory for automatic handling
