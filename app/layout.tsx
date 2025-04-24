@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: 'Festas',
     images: [
       {
-        url: '/og-image.png',
+        url: '@og-image.png',
         width: 1200,
         height: 630,
         alt: 'Festas FP&A Platform - Modern Financial Planning for Industrial Businesses',
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Festas FP&A Agents | AI-Powered Financial Planning for Industrial SMBs',
     description: 'Real-time, AI-driven financial planning for trucking, logistics, and waste-management operators.',
-    images: ['/og-image.png'],
+    images: ['@og-image.png'],
     creator: '@festasHQ', // Replace with your actual Twitter handle
     site: '@festasHQ', // Replace with your actual Twitter handle
   },

@@ -42,7 +42,7 @@ export default function Home() {
         name="Festas Inc."
         description="Provider of AI-driven financial planning and analysis software for industrial businesses"
         url="https://usefestas.com"
-        logo="https://usefestas.com/favicon.ico"
+        logo="https://usefestas.com/@og-image.png"
         sameAs={[
           "https://twitter.com/festasHQ",
           "https://linkedin.com/company/festas",
