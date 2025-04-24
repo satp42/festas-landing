@@ -3,12 +3,30 @@
 import { LoginForm } from "@/components/login-form";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 export default function GetStarted() {
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
       {/* Background component */}
       <BackgroundBeams className="absolute inset-0 w-full h-full z-0" />
+      
+      {/* Back button */}
+      <div className="absolute top-6 left-6 z-10">
+        <Button
+          variant="outline"
+          size="sm"
+          className="rounded-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm"
+          asChild
+        >
+          <Link href="/">
+            <ArrowLeft className="size-4 mr-1" />
+            Back
+          </Link>
+        </Button>
+      </div>
       
       <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
         <motion.div 
