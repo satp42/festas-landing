@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 
 // Load fonts with `display: 'swap'` to avoid FOUT and consistent SSR rendering
 const geistSans = Geist({
@@ -133,6 +134,7 @@ export default function RootLayout({
       <body className={bodyClasses}>
         {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   );
