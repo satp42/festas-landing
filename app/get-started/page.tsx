@@ -6,10 +6,21 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { BreadcrumbSchema } from "@/components/shared/seo-schema";
+
+// Metadata is defined in layout.tsx 
 
 export default function GetStarted() {
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
+      {/* Schema.org structured data */}
+      <BreadcrumbSchema 
+        items={[
+          { name: 'Home', url: 'https://festas.com/' },
+          { name: 'Get Started', url: 'https://festas.com/get-started/' }
+        ]} 
+      />
+      
       {/* Background component */}
       <BackgroundBeams className="absolute inset-0 w-full h-full z-0" />
       

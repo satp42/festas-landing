@@ -150,10 +150,10 @@ export function PricingSection({ className }: PricingSectionProps) {
             <CardFooter>
               <Button 
                 className={cn(
-                  "w-full",
+                  "w-full transition-colors duration-200",
                   plan.highlighted 
-                    ? "bg-spektr-cyan-50 hover:bg-spektr-cyan-50/90 text-slate-900 transition-colors duration-200"
-                    : ""
+                    ? "bg-spektr-cyan-50 hover:bg-spektr-cyan-50/90 text-slate-900"
+                    : "hover:text-spektr-cyan-50 border-spektr-cyan-50/20 hover:border-spektr-cyan-50"
                 )}
                 variant={plan.highlighted ? "default" : "outline"}
                 asChild
