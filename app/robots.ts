@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/*', '/admin/*'], // Adjust according to your site structure
     },
-    sitemap: 'https://festas.com/sitemap.xml', // Replace with your actual domain
+    sitemap: 'https://usefestas.com/sitemap.xml', // Replace with your actual domain
   };
 } 

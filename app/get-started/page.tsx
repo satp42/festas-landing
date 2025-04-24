@@ -16,8 +16,8 @@ export default function GetStarted() {
       {/* Schema.org structured data */}
       <BreadcrumbSchema 
         items={[
-          { name: 'Home', url: 'https://festas.com/' },
-          { name: 'Get Started', url: 'https://festas.com/get-started/' }
+          { name: 'Home', url: 'https://usefestas.com/' },
+          { name: 'Get Started', url: 'https://usefestas.com/get-started/' }
         ]} 
       />
       
