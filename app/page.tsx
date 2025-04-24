@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { HeroDemo } from "@/components/ui/animated-hero";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { FeaturesGrid } from "@/components/ui/feature-grid";
+import { PricingSection } from "@/components/ui/pricing-section";
 import { toast } from "sonner";
 
 export default function Home() {
@@ -40,6 +41,11 @@ export default function Home() {
         {/* Features section */}
         <section>
           <FeaturesGrid />
+        </section>
+        
+        {/* Pricing section */}
+        <section>
+          <PricingSection />
         </section>
       </div>
     </div>
