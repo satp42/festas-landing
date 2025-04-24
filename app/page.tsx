@@ -41,8 +41,8 @@ export default function Home() {
       <OrganizationSchema 
         name="Festas Inc."
         description="Provider of AI-driven financial planning and analysis software for industrial businesses"
-        url="https://festas.com"
-        logo="https://festas.com/logo.png"
+        url="https://usefestas.com"
+        logo="https://usefestas.com/favicon.ico"
         sameAs={[
           "https://twitter.com/festasHQ",
           "https://linkedin.com/company/festas",
